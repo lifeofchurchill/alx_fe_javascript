@@ -1,71 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dynamic Quote Generator with Server Sync</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      text-align: center;
-    }
-    #quoteDisplay {
-      margin: 20px 0;
-      font-size: 1.2rem;
-      font-style: italic;
-    }
-    #categorySelect {
-      margin: 10px 0;
-      padding: 5px;
-    }
-    .form-container {
-      margin-top: 20px;
-    }
-    input {
-      padding: 5px;
-      margin: 5px;
-    }
-    button {
-      padding: 8px 15px;
-      margin: 5px;
-      cursor: pointer;
-    }
-    .storage-controls {
-      margin-top: 20px;
-    }
-    #notifications {
-      margin-top: 15px;
-      color: green;
-      font-weight: bold;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dynamic Quote Generator</title>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-  <h1>Dynamic Quote Generator</h1>
+  <div class="container">
+    <h1>Dynamic Quote Generator</h1>
 
-  <!-- Quote Display -->
-  <div id="quoteDisplay">Click the button to see a quote!</div>
+    <!-- Category filter dropdown -->
+    <label for="categoryFilter">Filter by Category:</label>
+    <select id="categoryFilter" onchange="filterQuotes()">
+      <option value="all">All Categories</option>
+    </select>
 
-  <!-- Category Selector -->
-  <select id="categorySelect">
-    <option value="all">All Categories</option>
-  </select>
+    <p id="quoteDisplay">Click "New Quote" to get started!</p>
+    <button id="newQuote">New Quote</button>
+    
+    <div id="formPlaceholder"></div>
 
-  <!-- Show Quote Button -->
-  <button id="newQuote">Show New Quote</button>
-
-  <!-- Placeholder for dynamic Add Quote Form -->
-  <div id="formPlaceholder"></div>
-
-  <!-- Import/Export Section -->
-  <div class="storage-controls">
     <button id="exportBtn">Export Quotes</button>
-    <input type="file" id="importFile" accept=".json" />
+    <input type="file" id="importFile" />
   </div>
-
-  <!-- Notifications -->
-  <div id="notifications"></div>
 
   <script src="script.js"></script>
 </body>
