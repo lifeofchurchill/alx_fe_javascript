@@ -1,39 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dynamic Quote Generator with Storage</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dynamic Quote Generator with Sync</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      text-align: center;
-    }
-    #quoteDisplay {
-      margin: 20px 0;
-      font-size: 1.2rem;
-      font-style: italic;
-    }
-    #categorySelect {
-      margin: 10px 0;
-      padding: 5px;
-    }
-    .form-container {
-      margin-top: 20px;
-    }
-    input {
-      padding: 5px;
-      margin: 5px;
-    }
-    button {
-      padding: 8px 15px;
-      margin: 5px;
-      cursor: pointer;
-    }
-    .storage-controls {
-      margin-top: 20px;
-    }
+    :root { color-scheme: light dark; }
+    body { font-family: Arial, sans-serif; padding: 20px; text-align: center; }
+    #quoteDisplay { margin: 20px 0; font-size: 1.2rem; font-style: italic; min-height: 2.2em; }
+    #categorySelect { margin: 10px 0; padding: 6px 10px; }
+    button { padding: 8px 14px; margin: 6px; cursor: pointer; border-radius: 10px; }
+    input { padding: 8px 10px; margin: 6px; border-radius: 10px; width: min(420px, 90%); }
+    .form-container { margin-top: 14px; }
+    .storage-controls, .sync-controls { margin-top: 18px; }
+    #syncStatus { margin-top: 10px; font-weight: bold; }
+    .banner-info { color: #1e70ff; }
+    .banner-ok { color: #2fa44f; }
+    .banner-warn { color: #d98324; }
+    .banner-err { color: #d93a2b; }
   </style>
 </head>
 <body>
@@ -47,18 +31,5 @@
     <option value="all">All Categories</option>
   </select>
 
-  <!-- Show Quote Button -->
-  <button id="newQuote">Show New Quote</button>
-
-  <!-- Placeholder for dynamic Add Quote Form -->
-  <div id="formPlaceholder"></div>
-
-  <!-- Import/Export Section -->
-  <div class="storage-controls">
-    <button id="exportBtn">Export Quotes</button>
-    <input type="file" id="importFile" accept=".json" />
-  </div>
-
-  <script src="script.js"></script>
-</body>
-</html>
+  <!-- Actions -->
+  <div>
